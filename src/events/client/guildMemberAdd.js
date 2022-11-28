@@ -9,7 +9,7 @@ module.exports ={
 
             const embed = new EmbedBuilder({
                 title: "Welcome to Jayce's Wrokshop!",
-                description: `<@${member.id}>\nWelcome to Jayce's Workshop. We are glad to see you here. Enjoy your stay, chat it up, and have fun. We offer many things from Non ELS Vehicles, to Liveries, to EUP, to Scripts, to MLO's/yMaps, and more. Please read over our Rules and Regulations which can be found here! Our Terms of Service can also be located here`,
+                            description: `<@${member.id}>\nWelcome to Jayce's Workshop. We are glad to see you here. Enjoy your stay, chat it up, and have fun. We offer many things from Non ELS Vehicles, to Liveries, to EUP, to Scripts, to MLO's/yMaps, and more. Please read over our Rules and Regulations which can be found [here](https://discord.com/channels/1017531292885192765/1017541146043498599)! Our Terms of Service can also be located [here](https://discord.com/channels/1017531292885192765/1017541738635731056)`,
                 image: {
                     url: `https://media.discordapp.net/attachments/1006317750014197846/1024943028311441438/image0.gif`
                 },
