@@ -9,13 +9,14 @@ module.exports = {
     async execute(interaction, client) {
 
         const guild = await client.guilds.fetch('1017531292885192765').catch(console.error);
-        const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
-        const jsonData = JSON.parse(rawData);
+        
 
 
 
             switch (interaction.values[0]) {
                 case "Commission":
+                const rawData1 = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
+                const jsonData1 = JSON.parse(rawData1);
 
                 interaction.deferReply({ephemeral: true})
 
@@ -30,7 +31,7 @@ module.exports = {
                     .setStyle(ButtonStyle.Primary);
                     
                     guild.channels.create({
-                        name: `ticket-${jsonData.commissionCount}`,
+                        name: `ticket-${jsonData1.commissionCount}`,
                         parent: '1046130044944273438',
                         type: ChannelType.GuildText,
                         permissionOverwrites: [
@@ -48,11 +49,12 @@ module.exports = {
 
                         ).catch(console.error);
                         interaction.editReply(`#ticket-${jsonData.commissionCount}`)
-                    fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount + 1}))
+                    fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData1.commissionCount + 1}))
 
                     break;
                 case "Support":
-
+                    const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
+                    const jsonData = JSON.parse(rawData);
                     const SupportEmbed = new EmbedBuilder()
                     .setTitle(`Support Request!`)
                     .setDescription(`A Support Team Member will be with you shortly. In the mean time please provide the reason you need support.`)
