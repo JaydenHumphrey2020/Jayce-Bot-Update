@@ -12,11 +12,10 @@ module.exports = {
         const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
         const jsonData = JSON.parse(rawData);
 
-
+        interaction.deferReply({content:'Creating Ticket', ephemeral: true})
 
             switch (interaction.values[0]) {
                 case "Commission":
-                    interaction.deferReply({content:'Creating Ticket', ephemeral: true})
 
                 const commissionEmbed = new EmbedBuilder()
                 .setTitle(`Commission Request!`)
