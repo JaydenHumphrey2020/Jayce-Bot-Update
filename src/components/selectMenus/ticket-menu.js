@@ -1,3 +1,5 @@
+const { EmbedBuilder } = require('discord.js')
+const fs = require('fs');
 
 
 module.exports = {
@@ -5,10 +7,45 @@ module.exports = {
         name: 'ticket-menu',
     },
     async execute(interaction, client) {
-        await interaction.reply({
-            
-            content: `You selected: ${interaction.values[0]}`,
 
-        });
+        const guild = await client.guilds.fetch('1017531292885192765').catch(console.error);
+        const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
+        const jsonData = JSON.parse(rawData);
+
+
+
+            switch (interaction.values[0]) {
+                case "commission":
+
+                const supportEmbed = new EmbedBuilder()
+                .setTitle(`Commission Request!`)
+                .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
+                .setColor(0x18e1ee)
+                    
+                    guild.channels.create(`ticket-${jsonData.commissionCount}`, {
+                        parent: '1046130044944273438',
+                        permissionOverwrites: [
+                            {
+                              id: interaction.member.id,
+                              allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.SEND_MESSAGES],
+                           },
+                         ],
+                    })
+                    .then(
+                        channel => channel.send({
+                            embeds: supportEmbed
+                        }))
+                    .catch(console.error);
+
+
+                    break;
+                case "support":
+                    
+                break;
+            
+                default:
+                    break;
+            }
+
     },
 };
