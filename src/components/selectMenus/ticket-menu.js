@@ -81,7 +81,7 @@ module.exports = {
                                 components: [new ActionRowBuilder().addComponents(CloseSupportButton)]
                             })
                             ).catch(console.error);
-                            let abcd = interaction.guild.channels.cache.fetch(channel => channel.name === "channel-name");
+                            let abcd = interaction.guild.channels.cache.find(channel => channel.name === "channel-name");
                             abcd.send('<@1047322104086921296>').then(msg => msg.delete())
 
 
