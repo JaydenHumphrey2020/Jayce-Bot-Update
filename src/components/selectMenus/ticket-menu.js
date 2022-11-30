@@ -17,6 +17,8 @@ module.exports = {
             switch (interaction.values[0]) {
                 case "Commission":
 
+                interaction.deferReply()
+
                 const commissionEmbed = new EmbedBuilder()
                 .setTitle(`Commission Request!`)
                 .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
