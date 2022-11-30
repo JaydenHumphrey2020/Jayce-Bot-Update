@@ -24,6 +24,7 @@ module.exports = {
                     
                     guild.channels.create(`ticket-${jsonData.commissionCount}`, {
                         parent: '1046130044944273438',
+                        type: 'GUILD_TEXT',
                         permissionOverwrites: [
                             {
                               id: interaction.member.id,
