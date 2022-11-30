@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports = {
     data: {
-        name: 'support-ticket',
+        name: 'commission-ticket',
     },
     async execute(interaction, client) {
 
