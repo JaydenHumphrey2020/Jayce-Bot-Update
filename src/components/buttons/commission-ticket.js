@@ -16,7 +16,7 @@ module.exports = {
         const jsonData = JSON.parse(rawData);
         
         // This is only so it dont fail
-        await interaction.reply({content: "Creating Support Ticket!", ephemeral: true});
+        await interaction.reply({content: "Creating Commission Request Ticket!", ephemeral: true});
 
 
         const commissionEmbed = new EmbedBuilder()
