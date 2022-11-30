@@ -24,7 +24,7 @@ module.exports = {
                 })
             );
 
-            await interaction.reply({
+            await channel.send({
                 components: [new ActionRowBuilder().addComponents(ticketMenu)],
             });
 
