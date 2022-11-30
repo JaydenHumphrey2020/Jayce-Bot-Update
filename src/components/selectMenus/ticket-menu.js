@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, Permissions } = require('discord.js')
 const fs = require('fs');
 
 
@@ -27,7 +27,7 @@ module.exports = {
                         permissionOverwrites: [
                             {
                               id: interaction.member.id,
-                              allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.SEND_MESSAGES],
+                              allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
                            },
                          ],
                     })
