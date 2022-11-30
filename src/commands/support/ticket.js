@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, SelectMenuBuilder, ActionRowBuilder, SelectMenuOptionBuilder } = require('discord.js');
+const { SlashCommandBuilder, SelectMenuBuilder, ActionRowBuilder, SelectMenuOptionBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,6 +8,12 @@ module.exports = {
         
         const guild = await client.guilds.fetch('1017531292885192765').catch(console.error);
         const channel = await guild.channels.fetch('1047279417367466084').catch(console.error);
+
+        const ticketEmbed = new EmbedBuilder()
+            .setTitle(`Create New Ticket!`)
+            .setDescription(`If You Would like to ask for a commision or need Support Please Create A ticket Below.`)
+            .setColor(0x18e1ee)
+            .setTimestamp(Date.now())
 
         const ticketMenu = new SelectMenuBuilder()
             .setCustomId(`ticket-menu`)
@@ -25,6 +31,7 @@ module.exports = {
             );
 
             await channel.send({
+                embeds: [ticketEmbed],
                 components: [new ActionRowBuilder().addComponents(ticketMenu)],
             });
 
