@@ -1,4 +1,4 @@
-const { EmbedBuilder, PermissionFlagsBits, ChannelType } = require('discord.js')
+const { EmbedBuilder, PermissionFlagsBits, ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 const fs = require('fs');
 
 
@@ -21,6 +21,11 @@ module.exports = {
                 .setTitle(`Commission Request!`)
                 .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
                 .setColor(0x18e1ee)
+
+                const CloseButton = new ButtonBuilder()
+                    .setCustomId('close-ticket')
+                    .setLabel('Close')
+                    .setStyle(ButtonStyle.Primary);
                     
                     guild.channels.create({
                         name: `ticket-${jsonData.commissionCount}`,
@@ -32,7 +37,14 @@ module.exports = {
                               allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
                            },
                          ],
-                    }).then(channel => channel.send({embeds: [supportEmbed]})).catch(console.error);
+                    }).then(
+
+                        channel => channel.send({
+                            embeds: [supportEmbed],
+                            components: [new ActionRowBuilder().addComponents(CloseButton)]
+                        })
+
+                        ).catch(console.error);
                     fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount + 1}))
 
                     break;
