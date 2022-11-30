@@ -10,7 +10,7 @@ module.exports = {
         const channel = await guild.channels.fetch('1047279417367466084').catch(console.error);
 
         const ticketMenu = new SelectMenuBuilder()
-            .setCustomId(`ticket`)
+            .setCustomId(`ticket-menu`)
             .setMinValues(1)
             .setMaxValues(1)
             .setOptions(
