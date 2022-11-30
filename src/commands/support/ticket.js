@@ -29,7 +29,7 @@ module.exports = {
                 })
             );
 
-            await interaction.send({
+            await interaction.reply({
                 embeds: [ticketEmbed],
                 components: [new ActionRowBuilder().addComponents(ticketMenu)],
             });

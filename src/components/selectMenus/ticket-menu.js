@@ -12,8 +12,6 @@ module.exports = {
         const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
         const jsonData = JSON.parse(rawData);
 
-        interaction.deferReply({content:'Creating Ticket', ephemeral: true})
-
             switch (interaction.values[0]) {
                 case "Commission":
 
@@ -49,7 +47,7 @@ module.exports = {
 
                     break;
                 case "Support":
-
+                    await interaction.deferUpdate();
                     const SupportEmbed = new EmbedBuilder()
                     .setTitle(`Support Request!`)
                     .setDescription(`A Support Team Member will be with you shortly. In the mean time please provide the reason you need support.`)
@@ -81,7 +79,7 @@ module.exports = {
                                 components: [new ActionRowBuilder().addComponents(CloseSupportButton)]
                             })
                             ).catch(console.error);
-
+                            await interaction.editReply({ content: 'Created Your Ticket', components: [] });
                         fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({commissionCount:  jsonData.commissionCount, supportCount:  jsonData.supportCount + 1}))
                     
                 break;

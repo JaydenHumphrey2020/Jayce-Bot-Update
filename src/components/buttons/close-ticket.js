@@ -5,12 +5,10 @@ module.exports = {
         name: 'close-ticket',
     },
     async execute(interaction, client) {
-        await interaction.channel.send({
+        await interaction.reply({
             content: 'Closing Ticket...',
         }).then(
-            interaction => {
-                setTimeout(() => interaction.channel.delete(), 10000)
-            }            
+            setTimeout(() => interaction.channel.delete(), 10000)         
         )
     }
 }
