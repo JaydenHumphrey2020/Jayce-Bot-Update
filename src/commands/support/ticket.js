@@ -29,7 +29,7 @@ module.exports = {
                 })
             );
 
-            await channel.send({
+            await interaction.send({
                 embeds: [ticketEmbed],
                 components: [new ActionRowBuilder().addComponents(ticketMenu)],
             });
