@@ -12,8 +12,8 @@ module.exports = {
             .setMaxValues(1)
             .setOptions(
                 new SelectMenuOptionBuilder({
-                    label: 'Commision',
-                    value: 'Commision',
+                    label: 'Commission',
+                    value: 'Commission',
                 }),
                 new SelectMenuOptionBuilder({
                     label: 'Support',
