@@ -1,4 +1,4 @@
-const { EmbedBuilder, Permissions } = require('discord.js')
+const { EmbedBuilder, PermissionFlagsBits } = require('discord.js')
 const fs = require('fs');
 
 
