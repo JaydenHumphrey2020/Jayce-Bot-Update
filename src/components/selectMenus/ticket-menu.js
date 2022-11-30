@@ -52,7 +52,7 @@ module.exports = {
 
                     const SupportEmbed = new EmbedBuilder()
                     .setTitle(`Support Request!`)
-                    .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
+                    .setDescription(`A Support Team Member will be with you shortly. In the mean time please provide the reason you need support.`)
                     .setColor(0x18e1ee)
     
                     const CloseSupportButton = new ButtonBuilder()
