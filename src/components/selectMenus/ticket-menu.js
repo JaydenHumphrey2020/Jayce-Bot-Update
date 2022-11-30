@@ -34,7 +34,10 @@ module.exports = {
                     .then(
                         channel => channel.send({
                             embeds: supportEmbed
-                        }))
+                        }),
+                        fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount++}))
+
+                        )
                     .catch(console.error);
 
 
