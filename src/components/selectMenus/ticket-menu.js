@@ -16,8 +16,7 @@ module.exports = {
 
             switch (interaction.values[0]) {
                 case "Commission":
-
-                interaction.deferReply({content:'Creating Ticket', ephemeral: true})
+                    interaction.deferReply({content:'Creating Ticket', ephemeral: true})
 
                 const commissionEmbed = new EmbedBuilder()
                 .setTitle(`Commission Request!`)
@@ -47,7 +46,7 @@ module.exports = {
                         })
 
                         ).catch(console.error);
-                    fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount + 1}))
+                    fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({supportCount: jsonData.supportCount, commissionCount:  jsonData.commissionCount + 1}))
 
                     break;
                 case "Support":
@@ -84,7 +83,7 @@ module.exports = {
                             })
                             ).catch(console.error);
 
-                        fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ supportCount:  jsonData.supportCount + 1}))
+                        fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({commissionCount:  jsonData.commissionCount, supportCount:  jsonData.supportCount + 1}))
                     
                 break;
             
