@@ -1,4 +1,4 @@
-const { EmbedBuilder, PermissionFlagsBits } = require('discord.js')
+const { EmbedBuilder, PermissionFlagsBits, ChannelType } = require('discord.js')
 const fs = require('fs');
 
 
@@ -22,15 +22,16 @@ module.exports = {
                 .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
                 .setColor(0x18e1ee)
                     
-                    guild.channels.create(`ticket-${jsonData.commissionCount}`, {
+                    guild.channels.create({
+                        name: `ticket-${jsonData.commissionCount}`,
                         parent: '1046130044944273438',
-                        // type: 'GUILD_TEXT',
-                        // permissionOverwrites: [
-                        //     {
-                        //       id: interaction.member.id,
-                        //       allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
-                        //    },
-                        //  ],
+                        type: ChannelType.GuildText,
+                        permissionOverwrites: [
+                            {
+                              id: interaction.user.id,
+                              allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
+                           },
+                         ],
                     })
                     .then(
                         channel => channel.send({
