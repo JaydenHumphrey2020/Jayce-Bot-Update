@@ -17,7 +17,7 @@ module.exports = {
             switch (interaction.values[0]) {
                 case "Commission":
 
-                interaction.deferReply()
+                interaction.deferReply({ephemeral: true})
 
                 const commissionEmbed = new EmbedBuilder()
                 .setTitle(`Commission Request!`)
@@ -47,6 +47,7 @@ module.exports = {
                         })
 
                         ).catch(console.error);
+                        interaction.editReply(`#ticket-${jsonData.commissionCount}`)
                     fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount + 1}))
 
                     break;
