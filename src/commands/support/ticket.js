@@ -13,7 +13,6 @@ module.exports = {
             .setTitle(`Create New Ticket!`)
             .setDescription(`If You Would like to ask for a commision or need Support Please Create A ticket Below.`)
             .setColor(0x18e1ee)
-            .setTimestamp(Date.now())
 
         const ticketMenu = new SelectMenuBuilder()
             .setCustomId(`ticket-menu`)
