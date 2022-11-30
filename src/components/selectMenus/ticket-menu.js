@@ -69,6 +69,10 @@ module.exports = {
                                   id: interaction.user.id,
                                   allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
                                },
+                               {
+                                id: interaction.guild.roles.everyone.id,
+                                deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]
+                               },
                              ],
                         }).then(
     
