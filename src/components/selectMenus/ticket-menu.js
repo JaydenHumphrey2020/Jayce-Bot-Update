@@ -48,7 +48,7 @@ module.exports = {
                     fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount + 1}))
 
                     break;
-                case "support":
+                case "Support":
 
                     const SupportEmbed = new EmbedBuilder()
                     .setTitle(`Support Request!`)
