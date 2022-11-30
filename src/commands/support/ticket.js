@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, SelectMenuBuilder, ActionRowBuilder, SelectMenuOptionBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,24 +14,19 @@ module.exports = {
             .setDescription(`If You Would like to ask for a commision or need Support Please Create A ticket Below.`)
             .setColor(0x18e1ee)
 
-        const ticketMenu = new SelectMenuBuilder()
-            .setCustomId(`ticket-menu`)
-            .setMinValues(1)
-            .setMaxValues(1)
-            .setOptions(
-                new SelectMenuOptionBuilder({
-                    label: 'Commission',
-                    value: 'Commission',
-                }),
-                new SelectMenuOptionBuilder({
-                    label: 'Support',
-                    value: 'Support',
-                })
-            );
+            const supportButton = new ButtonBuilder()
+            .setCustomId('support-ticket')
+            .setLabel('Support Ticket')
+            .setStyle(ButtonStyle.Primary);
+
+            const commissionButton = new ButtonBuilder()
+            .setCustomId('commission-ticket')
+            .setLabel('Commission Ticket')
+            .setStyle(ButtonStyle.Secondary);
 
             await interaction.reply({
                 embeds: [ticketEmbed],
-                components: [new ActionRowBuilder().addComponents(ticketMenu)],
+                components: [new ActionRowBuilder().addComponents(supportButton, commissionButton)],
             });
 
     }
