@@ -79,8 +79,11 @@ module.exports = {
                             channel => channel.send({
                                 embeds: [SupportEmbed],
                                 components: [new ActionRowBuilder().addComponents(CloseSupportButton)]
-                            })
-    
+                            }).then(
+                                channel => channel.send('<@1047322104086921296>').then(msg=>msg.delete({timeout:"2000"/*Time until delete in milliseconds*/})
+                            )
+                            )
+
                             ).catch(console.error);
                         fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ supportCount:  jsonData.supportCount + 1}))
                     
