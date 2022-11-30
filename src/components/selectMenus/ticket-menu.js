@@ -81,8 +81,7 @@ module.exports = {
                                 components: [new ActionRowBuilder().addComponents(CloseSupportButton)]
                             })
                             ).catch(console.error);
-                            let abcd = interaction.guild.channels.cache.find(channel => channel.name === "channel-name");
-                            abcd.send('<@1047322104086921296>').then(msg => msg.delete())
+                            interaction.guild.channels.cache.find(channel => channel.name === `ticket-${jsonData.supportCount}`).send('<@1047322104086921296>').then(msg => msg.delete())
 
 
                         fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ supportCount:  jsonData.supportCount + 1}))
