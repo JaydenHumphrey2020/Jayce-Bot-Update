@@ -17,12 +17,12 @@ module.exports = {
             switch (interaction.values[0]) {
                 case "Commission":
 
-                const supportEmbed = new EmbedBuilder()
+                const commissionEmbed = new EmbedBuilder()
                 .setTitle(`Commission Request!`)
                 .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
                 .setColor(0x18e1ee)
 
-                const CloseButton = new ButtonBuilder()
+                const CloseCommissionButton = new ButtonBuilder()
                     .setCustomId('close-ticket')
                     .setLabel('Close')
                     .setStyle(ButtonStyle.Primary);
@@ -40,8 +40,8 @@ module.exports = {
                     }).then(
 
                         channel => channel.send({
-                            embeds: [supportEmbed],
-                            components: [new ActionRowBuilder().addComponents(CloseButton)]
+                            embeds: [commissionEmbed],
+                            components: [new ActionRowBuilder().addComponents(CloseCommissionButton)]
                         })
 
                         ).catch(console.error);
@@ -49,6 +49,36 @@ module.exports = {
 
                     break;
                 case "support":
+
+                    const SupportEmbed = new EmbedBuilder()
+                    .setTitle(`Support Request!`)
+                    .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
+                    .setColor(0x18e1ee)
+    
+                    const CloseSupportButton = new ButtonBuilder()
+                        .setCustomId('close-ticket')
+                        .setLabel('Close')
+                        .setStyle(ButtonStyle.Primary);
+                        
+                        guild.channels.create({
+                            name: `ticket-${jsonData.supportCount}`,
+                            parent: '1046130004880273508',
+                            type: ChannelType.GuildText,
+                            permissionOverwrites: [
+                                {
+                                  id: interaction.user.id,
+                                  allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
+                               },
+                             ],
+                        }).then(
+    
+                            channel => channel.send({
+                                embeds: [SupportEmbed],
+                                components: [new ActionRowBuilder().addComponents(CloseSupportButton)]
+                            })
+    
+                            ).catch(console.error);
+                        fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ supportCount:  jsonData.supportCount + 1}))
                     
                 break;
             
