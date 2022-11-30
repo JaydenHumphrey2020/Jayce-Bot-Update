@@ -33,7 +33,7 @@ module.exports = {
                            },
                          ],
                     }).then(channel => channel.send({embeds: [supportEmbed]})).catch(console.error);
-                    fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount++}))
+                    fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({ commissionCount:  jsonData.commissionCount + 1}))
 
                     break;
                 case "support":
