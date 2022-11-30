@@ -15,7 +15,7 @@ module.exports = {
 
 
             switch (interaction.values[0]) {
-                case "commission":
+                case "Commission":
 
                 const supportEmbed = new EmbedBuilder()
                 .setTitle(`Commission Request!`)
