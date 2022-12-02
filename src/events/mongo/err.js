@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 
 module.exports = {
-    name: "error",
+    name: "err",
     execute() {
         console.log(chalk.red("[Database Status]: Error"))
     }
