@@ -27,7 +27,7 @@ module.exports = {
             .setStyle(ButtonStyle.Primary);
 
         const claimButton = new ButtonBuilder()
-            .setCustomId('claim-button')
+            .setCustomId('claim-ticket')
             .setLabel('Claim')
             .setStyle(ButtonStyle.Primary)
 
