@@ -10,7 +10,7 @@ module.exports = {
 
         const SupportEmbed = new EmbedBuilder()
             .setTitle(`Support Request!`)
-            .setDescription(`A Support Team Member will be with you shortly. In the mean time please provide the reason you need support.\nClaimed by: <@${interaction.member.id}>`)
+            .setDescription(`A Support Team Member will be with you shortly. In the mean time please provide the reason you need support.\n\nClaimed by: <@${interaction.member.id}>`)
             .setColor(0x18e1ee)
         
         const closeButton = new ButtonBuilder()
@@ -28,6 +28,8 @@ module.exports = {
         interaction.message.edit({
             embeds: [SupportEmbed],
             components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
-        })
+        });
+
+        interaction.send('Support Ticket has been Claimed!')
     }
 }
