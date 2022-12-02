@@ -30,6 +30,6 @@ module.exports = {
             components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
         });
 
-        interaction.send('Support Ticket has been Claimed!')
+        interaction.reply('Support Ticket has been Claimed!')
     }
 }
