@@ -24,7 +24,7 @@ module.exports = {
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true)
 
-        let supportRole = message.guild.roles.cache.get("1017539524294881310");
+        let supportRole = interaction.guild.roles.cache.get("1017539524294881310");
 
         if(interaction.member.roles.cache.has(supportRole)) {
             interaction.message.edit({
