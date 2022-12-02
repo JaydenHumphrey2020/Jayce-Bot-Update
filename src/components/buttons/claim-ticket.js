@@ -5,6 +5,6 @@ module.exports = {
         name: 'claim-ticket',
     },
     async execute(interaction, client) {
-        console.log(interaction.message.components)
+        console.log(interaction.message.components.ActionRow.components)
     }
 }
