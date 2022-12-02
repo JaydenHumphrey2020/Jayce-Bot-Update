@@ -24,7 +24,7 @@ module.exports = {
             .setLabel('Commission Ticket')
             .setStyle(ButtonStyle.Secondary);
 
-            await interaction.reply({
+            await interaction.channel.send({
                 embeds: [ticketEmbed],
                 components: [new ActionRowBuilder().addComponents(supportButton, commissionButton)],
             });

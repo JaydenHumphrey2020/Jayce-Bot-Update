@@ -42,10 +42,14 @@ module.exports = {
 
         }).then(
     
-            channel => channel.send({
-                embeds: [SupportEmbed],
-                components: [new ActionRowBuilder().addComponents(closeButton)]
-            })
+            channel => {
+                interaction.reply();
+                channel.send({
+                    embeds: [SupportEmbed],
+                    components: [new ActionRowBuilder().addComponents(closeButton)]
+                })
+                
+            }
 
         ).catch(console.error);
 
