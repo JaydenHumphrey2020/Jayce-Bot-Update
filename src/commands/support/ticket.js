@@ -11,7 +11,7 @@ module.exports = {
 
         const ticketEmbed = new EmbedBuilder()
             .setTitle(`Create New Ticket!`)
-            .setDescription(`If You Would like to ask for a commision or need Support Please Create A ticket Below.`)
+            .setDescription(`If You Would like to ask for a Commission or need Support please create a ticket Below.`)
             .setColor(0x18e1ee)
 
             const supportButton = new ButtonBuilder()
