@@ -14,10 +14,6 @@ module.exports = {
         // Get Json Data From ticket.json
         const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
         const jsonData = JSON.parse(rawData);
-        
-        // This is only so it dont fail
-        await interaction.reply({content: "Creating Commission Request Ticket!", ephemeral: true});
-
 
         const commissionEmbed = new EmbedBuilder()
             .setTitle(`Commission Request!`)
