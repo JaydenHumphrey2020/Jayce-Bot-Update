@@ -44,7 +44,8 @@ module.exports = {
                 channel.send({
                     embeds: [SupportEmbed],
                     components: [new ActionRowBuilder().addComponents(closeButton)]
-                })
+                });
+                channel.send(`<@1047321769041723433>`)
                 
             }
 
