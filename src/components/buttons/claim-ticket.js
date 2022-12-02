@@ -5,6 +5,6 @@ module.exports = {
         name: 'claim-ticket',
     },
     async execute(interaction, client) {
-        console.log(interaction.message.components.ActionRow)
+        interaction.setDisabled(true)
     }
 }
