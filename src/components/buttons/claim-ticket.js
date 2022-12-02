@@ -24,12 +24,15 @@ module.exports = {
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true)
 
-
-        interaction.message.edit({
-            embeds: [SupportEmbed],
-            components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
-        });
-
-        interaction.reply('Support Ticket has been Claimed!')
+        if(interaction.member.roles.has(1017539524294881310)) {
+            interaction.message.edit({
+                embeds: [SupportEmbed],
+                components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
+            });
+    
+            interaction.reply('Support Ticket has been Claimed!')
+        }else {
+            interaction.reply({content: 'Only a Support Team Member can claim tickets!' ,ephemeral: true})
+        }
     }
 }
