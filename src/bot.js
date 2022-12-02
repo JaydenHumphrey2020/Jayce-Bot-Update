@@ -30,5 +30,5 @@ client.handleComponents();
 client.login(token);
 
 (async () => {
-    await connect(databaseToken).catch(console.log);
+    await connect(databaseToken).catch(console.error);
 })
