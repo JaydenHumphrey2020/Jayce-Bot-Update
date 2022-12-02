@@ -20,7 +20,7 @@ module.exports = {
 
         const claimButton = new ButtonBuilder()
             .setCustomId('claim-ticket')
-            .setLabel('Claim')
+            .setLabel('Claimed')
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true)
 
