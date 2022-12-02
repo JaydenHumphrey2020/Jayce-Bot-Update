@@ -29,6 +29,11 @@ module.exports = {
             .setLabel('Close')
             .setStyle(ButtonStyle.Primary);
 
+            const claimButton = new ButtonBuilder()
+            .setCustomId('claim-ticket')
+            .setLabel('Claim')
+            .setStyle(ButtonStyle.Primary)
+
         await guild.channels.create({
 
             name: `ticket-${jsonData.commissionCount}`,
@@ -42,7 +47,19 @@ module.exports = {
              ],
 
         }).then(
-            channel => channel.send({ embeds: [commissionEmbed], components: [new ActionRowBuilder().addComponents(closeButton)] })
+    
+            channel => {
+                interaction.reply({content: `Commission Request Ticket Created <#${channel.id}>!`, ephemeral: true});
+                channel.send({
+                    embeds: [SupportEmbed],
+                    components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
+                });
+                channel.send(`<@&1047321970007621764>`).then(msg => {
+                    msg. delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+                    })
+                
+            }
+
         ).catch(console.error);
 
         fs.writeFileSync(`${__dirname}/../../json/ticket.json`, JSON.stringify({supportCount: jsonData.supportCount, commissionCount:  jsonData.commissionCount + 1}))

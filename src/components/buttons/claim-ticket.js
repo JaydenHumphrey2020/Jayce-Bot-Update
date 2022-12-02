@@ -32,7 +32,7 @@ module.exports = {
                 components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
             });
     
-            interaction.reply('Support Ticket has been Claimed!')
+            interaction.reply('Ticket has been Claimed!')
         }else {
             interaction.reply({content: 'Only a Support Team Member can claim tickets!' ,ephemeral: true})
         }
