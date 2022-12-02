@@ -51,7 +51,7 @@ module.exports = {
             channel => {
                 interaction.reply({content: `Commission Request Ticket Created <#${channel.id}>!`, ephemeral: true});
                 channel.send({
-                    embeds: [SupportEmbed],
+                    embeds: [commissionEmbed],
                     components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
                 });
                 channel.send(`<@&1047321970007621764>`).then(msg => {
