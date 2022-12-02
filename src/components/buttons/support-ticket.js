@@ -26,6 +26,11 @@ module.exports = {
             .setLabel('Close')
             .setStyle(ButtonStyle.Primary);
 
+        const claimButton = new ButtonBuilder()
+            .setCustomId('claim-button')
+            .setLabel('Claim')
+            .setStyle(ButtonStyle.Primary)
+
         await guild.channels.create({
 
             name: `ticket-${jsonData.supportCount}`,
@@ -43,7 +48,7 @@ module.exports = {
                 interaction.reply({content: `Support Ticket Created <#${channel.id}>!`, ephemeral: true});
                 channel.send({
                     embeds: [SupportEmbed],
-                    components: [new ActionRowBuilder().addComponents(closeButton)]
+                    components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
                 });
                 channel.send(`<@&1017539524294881310>`).then(msg => {
                     msg. delete({ timeout: 1000 /*time unitl delete in milliseconds*/});
