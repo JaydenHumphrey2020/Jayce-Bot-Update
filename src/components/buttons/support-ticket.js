@@ -45,7 +45,9 @@ module.exports = {
                     embeds: [SupportEmbed],
                     components: [new ActionRowBuilder().addComponents(closeButton)]
                 });
-                channel.send(`<@1047321769041723433>`)
+                channel.send(`<@1017539524294881310>`).then(msg => {
+                    msg. delete({ timeout: 1000 /*time unitl delete in milliseconds*/});
+                })
                 
             }
 
