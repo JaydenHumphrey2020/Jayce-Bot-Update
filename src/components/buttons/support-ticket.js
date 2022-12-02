@@ -14,9 +14,6 @@ module.exports = {
         // Get Json Data From ticket.json
         const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
         const jsonData = JSON.parse(rawData);
-        
-        // This is only so it dont fail
-        await interaction.reply({content: "Creating Support Ticket!", ephemeral: true});
 
 
         const SupportEmbed = new EmbedBuilder()
@@ -43,7 +40,7 @@ module.exports = {
         }).then(
     
             channel => {
-                interaction.reply();
+                interaction.reply({content: `Support Ticket Created <#${channel.id}>!`, ephemeral: true});
                 channel.send({
                     embeds: [SupportEmbed],
                     components: [new ActionRowBuilder().addComponents(closeButton)]
