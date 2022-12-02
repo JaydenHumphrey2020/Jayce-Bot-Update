@@ -24,7 +24,9 @@ module.exports = {
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true)
 
-        if(interaction.member.roles.cache.has(1017539524294881310)) {
+        let supportRole = message.guild.roles.cache.get("1017539524294881310");
+
+        if(interaction.member.roles.cache.has(supportRole)) {
             interaction.message.edit({
                 embeds: [SupportEmbed],
                 components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
