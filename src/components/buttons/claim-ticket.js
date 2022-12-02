@@ -26,7 +26,7 @@ module.exports = {
 
         let supportRole = interaction.guild.roles.cache.get("1017539524294881310");
 
-        if(interaction.member.roles.cache.has(supportRole)) {
+        if(interaction.member.roles.cache.has("1017539524294881310")) {
             interaction.message.edit({
                 embeds: [SupportEmbed],
                 components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
