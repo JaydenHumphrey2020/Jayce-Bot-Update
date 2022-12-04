@@ -39,6 +39,7 @@ module.exports = {
             permissionOverwrites: [
 
                 {id: interaction.user.id, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
+                {id: 1047321970007621764, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
                 {id: interaction.guild.roles.everyone.id, deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]}
 
              ],
