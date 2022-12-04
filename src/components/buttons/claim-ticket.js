@@ -7,6 +7,9 @@ module.exports = {
         name: 'claim-ticket',
     },
     async execute(interaction, client) {
+        const guild = await client.guilds.fetch('1017531292885192765').catch(console.error);
+        const crole = guild.roles.cache.find(role => role.id === '1047321970007621764');
+        const srole = guild.roles.cache.find(role => role.id === '1017539524294881310');
 
         const SupportEmbed = new EmbedBuilder()
             .setTitle(`Support Request!`)
@@ -24,13 +27,19 @@ module.exports = {
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true)
 
-        let supportRole = interaction.guild.roles.cache.get("1017539524294881310");
-
         if(interaction.member.roles.cache.has("1017539524294881310")) {
             interaction.message.edit({
                 embeds: [SupportEmbed],
                 components: [new ActionRowBuilder().addComponents(closeButton,claimButton)]
             });
+
+            interaction.channel.permissionOverwrites.edit(
+                [
+                    {id: crole.id, deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
+                    {id: srole.id, deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
+                    {id: interaction.user.id, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
+                ]
+            )
     
             interaction.reply('Ticket has been Claimed!')
         }else {
