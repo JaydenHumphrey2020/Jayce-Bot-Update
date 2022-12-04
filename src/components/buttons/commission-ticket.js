@@ -15,6 +15,8 @@ module.exports = {
         const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
         const jsonData = JSON.parse(rawData);
 
+        const myRole = guild.roles.cache.find(role => role.id === '1047321970007621764');
+
         const commissionEmbed = new EmbedBuilder()
             .setTitle(`Commission Request!`)
             .setDescription(`Please Send what you would like commissioned and any reference material you have.`)
@@ -39,7 +41,7 @@ module.exports = {
             permissionOverwrites: [
 
                 {id: interaction.user.id, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
-                {id: 1047321970007621764, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
+                {id: myRole, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
                 {id: interaction.guild.roles.everyone.id, deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]}
 
              ],

@@ -15,6 +15,7 @@ module.exports = {
         const rawData = fs.readFileSync(`${__dirname}/../../json/ticket.json`);
         const jsonData = JSON.parse(rawData);
 
+        const myRole = guild.roles.cache.find(role => role.id === '1017539524294881310');
 
         const SupportEmbed = new EmbedBuilder()
             .setTitle(`Support Request!`)
@@ -39,7 +40,7 @@ module.exports = {
 
             permissionOverwrites: [
                 {id: interaction.user.id, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
-                {id: 1017539524294881310, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
+                {id: myRole, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]},
                 {id: interaction.guild.roles.everyone.id, deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]}
             ],
 
